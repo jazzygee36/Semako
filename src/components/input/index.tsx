@@ -1,4 +1,10 @@
-import { TextField, Box, Typography } from "@mui/material";
+import {
+  TextField,
+  Box,
+  Typography,
+  InputAdornment,
+  IconButton,
+} from "@mui/material";
 import { FC, useState } from "react";
 import "./input.css";
 
@@ -57,12 +63,21 @@ const Input: FC<Props> = ({
             outlineWidth: "none",
             borderRadius: "5px",
           }}
+          endAdornment={
+            type === "password" && (
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleTogglePassword}
+                  // onMouseDown={handleMouseDownPassword}
+                  edge="end"
+                >
+                  {visible ? "hide" : "show"}kkkkkkkk
+                </IconButton>
+              </InputAdornment>
+            )
+          }
         />
-        {type === "password" && (
-          <div className="InputIconWrapper" onClick={handleTogglePassword}>
-            {visible ? "hide" : "show"}
-          </div>
-        )}
       </Box>
     </Box>
   );
